@@ -15,12 +15,13 @@ export const todoSlice = createSlice({
       console.log();
       state.todos[action.payload].done = true;
     },
-    filter: (state, action) => {
-      state.todos = state.todos;
+    update: (state, action) => {
+      console.log(action)
+      state.todos[action.payload.id] = action.payload.formData
     },
   },
 });
 
-export const { addTodo, markAsDone } = todoSlice.actions;
+export const { addTodo, markAsDone,update } = todoSlice.actions;
 
 export default todoSlice.reducer;
