@@ -1,21 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import Task from "./Task";
+import Filter from "./Filter";
 
 import { useSelector } from "react-redux";
-import Task from "./Task";
-
 function ListTask() {
   const todos = useSelector((state) => state.todos);
-  console.log(todos);
+  const [filtred, setFiltred] = useState([]);
 
   return (
     <div>
-      {todos.map((e, i) => {
-        return (
-          <div key={i}>
-            <Task todo={e} />
-          </div>
-        );
-      })}
+      {filtred.length > 0 &&
+        filtred.map((e, i) => {
+          return (
+            <div key={i}>
+              <Task todo={e} id={i} setFiltred={setFiltred} />
+            </div>
+          );
+        })}
+      {filtred.length == 0 &&
+        todos.map((e, i) => {
+          return (
+            <div key={i}>
+              <Task todo={e} id={i} setFiltred={setFiltred} />
+            </div>
+          );
+        })}
+
+      <Filter todos={todos} setFiltred={setFiltred} />
     </div>
   );
 }
