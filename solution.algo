@@ -1,0 +1,55 @@
+At this checkpoint you are asked to write an algorithm that fulfills the following description:
+
+Description:
+
+Problem 1
+ 
+Given two sets of elements, find the sum of all distinct elements from the set. In other words, find the sum of all elements which are present in either of the given set.
+Example:
+Set 1 : [3, 1, 7, 9], Set 2: [2, 4, 1, 9, 3]
+Output: 13 (distinct elements 4, 7, 2 )
+Give a solutions to this problem, using arrays
+// solution :
+function sum_of_distinct_elements(set1, set2):
+    distinct_elements = set(set1) union set(set2)
+    return sum(distinct_elements)
+
+# Example usage
+set1 = [3, 1, 7, 9]
+set2 = [2, 4, 1, 9, 3]
+result = sum_of_distinct_elements(set1, set2)
+print(result)
+
+
+ 
+Problem 2 
+You are asked to write an algorithm that fulfill the following: 
+
+Name: Dot product
+Description:
+Write a procedure, called dot_product which calculates in the variable ps, the dot(scalar) product of v1 and v2 (v1 and v2 are vectors of IR)
+Write an algorithm which determines, for n pairs of given vectors, whether two vectors of given IR are orthogonal, by calling the procedure defined in the previous question. The dot product of two orthogonal vectors is zero.
+Modify the previous algorithm if you use a dot_product function instead of a procedure.
+
+
+solution :
+procedure dot_product(v1, v2):
+    ps = 0
+    for i from 0 to length(v1) - 1:
+        ps = ps + (v1[i] * v2[i])
+    return ps
+
+function are_vectors_orthogonal(v1, v2):
+    result = dot_product(v1, v2)
+    return result == 0
+
+# Example usage
+vectors = [ [v1_1, v1_2, ...], [v2_1, v2_2, ...], ... ]
+for i from 0 to length(vectors) - 1 step 2:
+    orthogonal = are_vectors_orthogonal(vectors[i], vectors[i+1])
+    print(f"Vectors {vectors[i]} and {vectors[i+1]} are orthogonal: {orthogonal}")
+
+
+
+
+
