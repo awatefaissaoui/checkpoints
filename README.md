@@ -1,0 +1,1 @@
+#  how you can just assign a checkpoint that require a payed api key for students ? 
